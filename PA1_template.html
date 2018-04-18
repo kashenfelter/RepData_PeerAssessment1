@@ -128,20 +128,9 @@ $(document).ready(function () {
 
 <pre class="r"><code>library(ggplot2)
 library(scales)
-library(Hmisc)</code></pre>
-<pre><code>## Warning: package 'Hmisc' was built under R version 3.4.4</code></pre>
-<pre><code>## Loading required package: lattice</code></pre>
-<pre><code>## Loading required package: survival</code></pre>
-<pre><code>## Loading required package: Formula</code></pre>
-<pre><code>## 
-## Attaching package: 'Hmisc'</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     format.pval, units</code></pre>
-<pre class="r"><code>library(htmltools)</code></pre>
-<pre><code>## Warning: package 'htmltools' was built under R version 3.4.4</code></pre>
-<pre class="r"><code>library(htmlwidgets)</code></pre>
-<pre><code>## Warning: package 'htmlwidgets' was built under R version 3.4.4</code></pre>
+library(Hmisc)
+library(htmltools)
+library(htmlwidgets)</code></pre>
 <div id="a.-loading-and-preprocessing-the-data" class="section level2">
 <h2>A. Loading and preprocessing the data</h2>
 <div id="show-any-code-that-is-needed-to-load-the-data-i.e.read.csv.-processtransform-the-data-if-necessary-into-a-format-suitable-for-your-analysisloading-and-preprocessing-the-data" class="section level4">
@@ -175,8 +164,8 @@ head(activity_data)</code></pre>
 <h1>Date and interval reformatting</h1>
 <pre class="r"><code>activity_data$date &lt;- as.POSIXct(activity_data$date)
 activity_data$steps &lt;- as.numeric(activity_data$steps)</code></pre>
-<div id="remove-rows-containing-missing-values-and-save-the-results-to-a-new-subsetted-data-frame-activity_data_nonmissing.-the-full-original-dataset-is-not-deleted-because-it-is-needed-for-imputation-in-a-future-step." class="section level5">
-<h5>Remove rows containing missing values and save the results to a new subsetted data frame “activity_data_nonmissing”. The full, original dataset is not deleted because it is needed for imputation in a future step.</h5>
+<div id="remove-rows-containing-missing-values-and-save-the-results-to-a-new-subsetted-data-frame-aactivity_data_nonmissinga.-the-full-original-dataset-is-not-deleted-because-it-is-needed-for-imputation-in-a-future-step." class="section level5">
+<h5>Remove rows containing missing values and save the results to a new subsetted data frame â€œactivity_data_nonmissingâ€. The full, original dataset is not deleted because it is needed for imputation in a future step.</h5>
 <pre class="r"><code>activity_data_nonmissing &lt;- subset(activity_data, !is.na(activity_data$steps))
 head(activity_data_nonmissing)</code></pre>
 <pre><code>##     steps       date interval
@@ -325,8 +314,8 @@ mean_diff </code></pre>
 </div>
 <div id="e.are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>E.Are there differences in activity patterns between weekdays and weekends?</h2>
-<div id="create-a-new-factor-variable-in-the-dataset-with-two-levels-weekday-and-weekend-indicating-whether-a-given-date-is-a-weekday-or-weekend-day.-for-this-part-the-weekdays-function-may-be-of-some-help-here.-use-the-dataset-with-the-filled-in-missing-values-for-this-part." class="section level3">
-<h3>1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day. For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.</h3>
+<div id="create-a-new-factor-variable-in-the-dataset-with-two-levels-a-aweekdaya-and-aweekenda-indicating-whether-a-given-date-is-a-weekday-or-weekend-day.-for-this-part-the-weekdays-function-may-be-of-some-help-here.-use-the-dataset-with-the-filled-in-missing-values-for-this-part." class="section level3">
+<h3>1. Create a new factor variable in the dataset with two levels â€“ â€œweekdayâ€ and â€œweekendâ€ indicating whether a given date is a weekday or weekend day. For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.</h3>
 <pre class="r"><code>activity_dataImputed$dateType &lt;-  ifelse(as.POSIXlt(activity_dataImputed$date)$wday %in% c(0,6), 'weekend', 'weekday')
 head(activity_dataImputed$dateType)</code></pre>
 <pre><code>## [1] &quot;weekday&quot; &quot;weekday&quot; &quot;weekday&quot; &quot;weekday&quot; &quot;weekday&quot; &quot;weekday&quot;</code></pre>
