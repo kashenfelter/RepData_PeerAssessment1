@@ -5,12 +5,14 @@ title: Class Project 1, Reproducible Research
 output: 
   html_document:
     keep_md: true
+    fig.path: 'figure-html/'
 
 ---
 
 
 
 ```r
+library(knitr)
 library(ggplot2)
 library(scales)
 library(Hmisc)
@@ -93,7 +95,7 @@ head(Steps_By_Day)
 hist(Steps_By_Day, xlab = "Total Number of Steps", col="blue", main = "Histogram of Total Steps By Day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)<!-- -->
 
 ###2. Calculate and report the mean and median total number of steps taken per day
 
@@ -138,7 +140,7 @@ ggplot(data=averageStepsPerInterval, aes(x=interval, y=meanSteps)) +
     ylab("average number of steps taken") 
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 ###2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -219,7 +221,7 @@ hist(Steps_By_Day_df$steps, main = paste("Total Steps Each Day"), col="red", xla
 legend("topright", c("Imputed", "Non-imputed"), col=c("blue", "red"), lwd=10)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
 
 ###4b. Report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?. 
 
@@ -315,5 +317,5 @@ ggplot(averagedactivity_dataImputed, aes(interval, steps)) +
     ylab("average number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
 The main differences in activity between weekends and weekdays is that activity peaks earlier on weekdays, but there is a trend toward more overall activity on weekends.
