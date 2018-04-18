@@ -1,8 +1,15 @@
-#Class 1 Project 1 
-#Reproducible Research
-#Kathy Ashenfelter, April 2018
+---
+author: Kathy Targowski Ashenfelter
+date: '`r Sys.Date()`'
+title: Class Project 1, Reproducible Research
+output: 
+  html_document:
+    keep_md: true
 
-```{r, echo='TRUE', results='markup', warning=TRUE, message=TRUE}
+---
+
+
+```{r}
 library(ggplot2)
 library(scales)
 library(Hmisc)
