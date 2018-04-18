@@ -5,11 +5,13 @@ title: Class Project 1, Reproducible Research
 output: 
   html_document:
     keep_md: true
+    fig.path: 'figure-html/'
 
 ---
 
 
 ```{r}
+library(knitr)
 library(ggplot2)
 library(scales)
 library(Hmisc)
